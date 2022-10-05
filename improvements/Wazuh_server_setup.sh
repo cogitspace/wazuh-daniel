@@ -18,8 +18,8 @@ read answer
 if [ $answer == "y" ]
 then
 ip_a=$(ip a show eth0 | grep brd  | awk '$1 == "inet" {gsub(/\/.*$/, "", $2); print $2}')
-sed "s/<replace>/$ip_a/g" .debian_template.sh > debian_agent_setup.sh
+sed "s/<replace>/$ip_a/g" debian_template.sh > debian_agent_setup.sh
 chmod u+x ./debian_agent_setup.sh
 else
-echo "no"
+echo "Goodbye!"
 fi
